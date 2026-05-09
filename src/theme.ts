@@ -209,6 +209,16 @@ export const theme = createTheme({
             backgroundColor: designTokens.colors.primary,
           },
         },
+        containedSecondary: {
+          backgroundColor: designTokens.colors.secondaryContainer,
+          color: designTokens.colors.primary,
+          '&:hover': {
+            backgroundColor: designTokens.colors.secondaryFixedDim,
+          },
+        },
+        text: {
+          color: designTokens.colors.secondary,
+        },
         outlined: {
           borderColor: designTokens.colors.outlineVariant,
         },
@@ -220,6 +230,9 @@ export const theme = createTheme({
           border: `1px solid ${designTokens.colors.outlineVariant}`,
           borderRadius: designTokens.rounded.lg,
           boxShadow: 'none',
+          '&:hover': {
+            boxShadow: '0px 4px 8px rgba(9, 30, 66, 0.08)',
+          },
         },
       },
     },
@@ -261,6 +274,13 @@ export const theme = createTheme({
         },
       },
     },
+    MuiTableRow: {
+      styleOverrides: {
+        root: {
+          height: 48,
+        },
+      },
+    },
     MuiTableCell: {
       styleOverrides: {
         head: {
@@ -276,6 +296,13 @@ export const theme = createTheme({
         },
       },
     },
+    MuiDrawer: {
+      styleOverrides: {
+        paper: {
+          backgroundColor: designTokens.colors.surfaceContainerLow,
+        },
+      },
+    },
     MuiListItemButton: {
       styleOverrides: {
         root: {
@@ -284,6 +311,7 @@ export const theme = createTheme({
           '&.Mui-selected': {
             backgroundColor: designTokens.colors.primaryFixed,
             color: designTokens.colors.onPrimaryFixedVariant,
+            borderLeft: `4px solid ${designTokens.colors.primaryContainer}`,
             '&:hover': {
               backgroundColor: designTokens.colors.primaryFixed,
             },
