@@ -102,7 +102,7 @@ export const theme = createTheme({
     divider: designTokens.colors.outlineVariant,
   },
   typography: {
-    fontFamily: "'Roboto Flex', Roboto, Arial, sans-serif",
+    fontFamily: "'Playfair Display', Georgia, serif",
     h1: {
       fontSize: '42px',
       fontWeight: 700,
