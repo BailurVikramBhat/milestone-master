@@ -50,49 +50,49 @@ colors:
   surface-variant: '#d8e2ff'
 typography:
   display-lg:
-    fontFamily: Roboto Flex
+    fontFamily: Playfair Display
     fontSize: 42px
     fontWeight: '700'
     lineHeight: 52px
     letterSpacing: -0.02em
   headline-lg:
-    fontFamily: Roboto Flex
+    fontFamily: Playfair Display
     fontSize: 32px
     fontWeight: '600'
     lineHeight: 40px
   headline-md:
-    fontFamily: Roboto Flex
+    fontFamily: Playfair Display
     fontSize: 24px
     fontWeight: '600'
     lineHeight: 32px
   headline-sm:
-    fontFamily: Roboto Flex
+    fontFamily: Playfair Display
     fontSize: 20px
     fontWeight: '600'
     lineHeight: 28px
   title-lg:
-    fontFamily: Roboto Flex
+    fontFamily: Playfair Display
     fontSize: 18px
     fontWeight: '500'
     lineHeight: 24px
   body-lg:
-    fontFamily: Roboto Flex
+    fontFamily: Playfair Display
     fontSize: 16px
     fontWeight: '400'
     lineHeight: 24px
   body-md:
-    fontFamily: Roboto Flex
+    fontFamily: Playfair Display
     fontSize: 14px
     fontWeight: '400'
     lineHeight: 20px
   label-md:
-    fontFamily: Roboto Flex
+    fontFamily: Playfair Display
     fontSize: 12px
     fontWeight: '500'
     lineHeight: 16px
     letterSpacing: 0.5px
   label-sm:
-    fontFamily: Roboto Flex
+    fontFamily: Playfair Display
     fontSize: 11px
     fontWeight: '500'
     lineHeight: 16px
@@ -130,7 +130,7 @@ The palette is anchored by a deep **Primary Blue (#0052CC)**, chosen for its hig
 
 ## Typography
 
-This design system utilizes **Roboto Flex** for its mechanical precision and superior legibility at small sizes. The typographic hierarchy is strictly functional:
+This design system utilizes **Playfair Display** for its mechanical precision and superior legibility at small sizes. The typographic hierarchy is strictly functional:
 
 - **Body Text:** The standard size is `body-md` (14px), optimized for information-dense data tables and task descriptions.
 - **Headlines:** Uses a medium weight (600) to stand out against high-density UI components without requiring excessive font size increases.
