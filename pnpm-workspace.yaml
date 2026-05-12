@@ -1,0 +1,12 @@
+packages:
+  - .
+
+allowBuilds:
+  esbuild: true
+
+settings:
+  # Supply-chain cooldown: block packages published less than 3 days ago.
+  # Unit is minutes. 3 days = 4320 min. pnpm reads this; .npmrc min-release-age is an npm-only fallback.
+  minimumReleaseAge: 4320
+  # Fail hard if no version satisfies the age constraint (default when key is explicitly set).
+  minimumReleaseAgeStrict: true
