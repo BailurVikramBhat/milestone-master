@@ -1,10 +1,31 @@
-import { Box, Button, Checkbox, Link, Typography } from "@mui/material";
+import {
+  Alert,
+  Box,
+  Checkbox,
+  Divider,
+  FormControl,
+  Link,
+  Typography,
+} from "@mui/material";
 import AuthLayout from "./AuthLayout";
 import { designTokens } from "../theme";
 import AppInputGroup from "../components/AppInputGroup";
 import AppButton from "../components/AppButton";
+import useLogin from "../hooks/useLogin";
+import GoogleIcon from "@mui/icons-material/Google";
+import { Link as RouterLink } from "react-router-dom";
 
 export default function LoginPage() {
+  const {
+    values,
+    errors,
+    submitError,
+    isSubmitting,
+    handleEmailChange,
+    handlePasswordChange,
+    handleRememberMeChange,
+    handleSubmit,
+  } = useLogin();
   return (
     <AuthLayout
       leftContent={
@@ -21,7 +42,7 @@ export default function LoginPage() {
               display: "flex",
               flexDirection: "column",
               gap: 2,
-              paddingBottom: "2rem",
+              pb: 4,
             }}
           >
             <Typography variant="h1" fontWeight={700}>
@@ -56,49 +77,77 @@ export default function LoginPage() {
           <Box
             sx={{
               width: "100%",
-
-              marginX: "auto",
-              padding: "1rem",
+              mx: "auto",
+              p: 2,
             }}
           >
             <Typography variant="h2">Welcome back</Typography>
             <Typography variant="caption">
-              Please enter your details to sign in.
+              Sign in to continue managing your milestones.
             </Typography>
           </Box>
+
           <Box
+            component="form"
+            noValidate
+            onSubmit={handleSubmit}
             sx={{
-              marginY: "1rem",
-              marginX: "1rem",
+              my: 2,
+              mx: 2,
             }}
           >
-            <AppInputGroup
-              label="Email Address"
-              fieldType="email"
-              placeholder="Enter your email"
+            <Box>
+              {submitError && (
+                <Alert
+                  variant="filled"
+                  severity="error"
+                  sx={{
+                    mb: 2,
+                  }}
+                >
+                  {submitError}
+                </Alert>
+              )}
+            </Box>
+            
+              <AppInputGroup
               required
-              size="small"
-              containerSx={{
-                marginBottom: "1rem",
-              }}
-            />
-            <AppInputGroup
-              label="Password"
-              fieldType="password"
-              placeholder="********"
+                error={Boolean(errors.email)}
+                helperText={errors.email}
+                value={values.email}
+                onChange={handleEmailChange}
+                label="Email Address"
+                fieldType="email"
+                placeholder="Enter your email"
+                size="small"
+                containerSx={{
+                  mb: 2,
+                }}
+              />
+            
+            
+              <AppInputGroup
               required
-              size="small"
-              containerSx={{
-                marginBottom: "1rem",
-              }}
-            />
+                error={Boolean(errors.password)}
+                helperText={errors.password}
+                value={values.password}
+                onChange={handlePasswordChange}
+                label="Password"
+                fieldType="password"
+                placeholder="********"
+                size="small"
+                containerSx={{
+                  mb: 2,
+                }}
+              />
+            
             <Box
               sx={{
                 display: "flex",
                 width: "100%",
                 justifyContent: "space-between",
                 alignItems: "center",
-                marginBottom: "1rem",
+                mb: 2,
               }}
             >
               <Box sx={{ display: "flex", alignItems: "flex-start" }}>
@@ -107,9 +156,11 @@ export default function LoginPage() {
                     m: 0,
                     p: 0,
                   }}
+                  checked={values.rememberMe}
+                  onChange={handleRememberMeChange}
                   id="remember-me"
                   slotProps={{
-                    input: { "aria-label": "Accept terms and conditions" },
+                    input: { "aria-label": "Remember me for 30 days" },
                   }}
                 />
                 <Typography
@@ -121,10 +172,56 @@ export default function LoginPage() {
                 </Typography>
               </Box>
               <Box>
-                <Link>Forgot Password?</Link>
+                <Link variant="caption">Forgot Password?</Link>
               </Box>
             </Box>
-            <AppButton>Sign In</AppButton>
+            <AppButton type="submit" disabled={isSubmitting}>
+              {isSubmitting ? "Signing In..." : "Sign In"}
+            </AppButton>
+          </Box>
+          <Box
+            sx={{
+              mx: 2,
+              my: 2,
+              width: "auto",
+            }}
+          >
+            <Divider
+              sx={{
+                fontSize: 12,
+              }}
+            >
+              OR CONTINUE WITH
+            </Divider>
+            <Box
+              sx={{
+                my: 4,
+              }}
+            >
+              <AppButton
+                type="button"
+                variant="outlined"
+                startIcon={<GoogleIcon />}
+              >
+                Continue with Google
+              </AppButton>
+            </Box>
+            <Box sx={{
+                width: "100%",
+                textAlign: "center"
+            }}><Typography variant="caption">
+    Don&apos;t have an account?{" "}
+    <Link
+      component={RouterLink}
+      to="/register"
+      underline="hover"
+      sx={{
+        fontWeight: 600,
+      }}
+    >
+      Sign Up
+    </Link>
+  </Typography></Box>
           </Box>
         </Box>
       }

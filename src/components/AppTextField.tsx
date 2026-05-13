@@ -66,6 +66,12 @@ export default function AppTextField({
       type={resolvedType}
       slotProps={{
         ...slotProps,
+        formHelperText: {
+          sx: {
+            mx: 0,
+            mt: 0.5,
+          },
+        },
         input: {
           ...slotProps?.input,
           startAdornment,
