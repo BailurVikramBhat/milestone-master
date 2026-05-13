@@ -3,12 +3,10 @@ import {
   Box,
   Checkbox,
   Divider,
-  FormControl,
   Link,
   Typography,
 } from "@mui/material";
 import AuthLayout from "./AuthLayout";
-import { designTokens } from "../theme";
 import AppInputGroup from "../components/AppInputGroup";
 import AppButton from "../components/AppButton";
 import useLogin from "../hooks/useLogin";
@@ -65,7 +63,7 @@ export default function LoginPage() {
           sx={{
             display: "flex",
             flexDirection: "column",
-            height: "100vh",
+            minHeight: "100vh",
             maxWidth: "400px",
             marginX: "auto",
             justifyContent: "center",
@@ -169,7 +167,17 @@ export default function LoginPage() {
                 </Typography>
               </Box>
               <Box>
-                <Link variant="caption">Forgot Password?</Link>
+                <Link
+      component={RouterLink}
+      to="/forgot"
+      underline="hover"
+      sx={{
+        fontSize: "small",
+        fontWeight: 600,
+      }}
+    >
+      Forgot Password?
+    </Link>
               </Box>
             </Box>
             <AppButton type="submit" disabled={isSubmitting}>
