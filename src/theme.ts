@@ -1,62 +1,66 @@
-import { createTheme } from '@mui/material/styles';
+import { createTheme } from "@mui/material/styles";
 
 export const designTokens = {
+  fonts: {
+    heading: "'Playfair Display', Georgia, serif",
+    body: "'Inter', 'Roboto', 'Helvetica Neue', Arial, sans-serif",
+  },
   colors: {
-    surface: '#faf9ff',
-    surfaceDim: '#ccdaff',
-    surfaceBright: '#faf9ff',
-    surfaceContainerLowest: '#ffffff',
-    surfaceContainerLow: '#f1f3ff',
-    surfaceContainer: '#e9edff',
-    surfaceContainerHigh: '#e1e8ff',
-    surfaceContainerHighest: '#d8e2ff',
-    onSurface: '#051a3e',
-    onSurfaceVariant: '#434654',
-    inverseSurface: '#1d3054',
-    inverseOnSurface: '#edf0ff',
-    outline: '#737685',
-    outlineVariant: '#c3c6d6',
-    surfaceTint: '#0c56d0',
-    primary: '#003d9b',
-    onPrimary: '#ffffff',
-    primaryContainer: '#0052cc',
-    onPrimaryContainer: '#c4d2ff',
-    inversePrimary: '#b2c5ff',
-    secondary: '#4f5f7b',
-    onSecondary: '#ffffff',
-    secondaryContainer: '#cdddff',
-    onSecondaryContainer: '#51617e',
-    tertiary: '#004b59',
-    onTertiary: '#ffffff',
-    tertiaryContainer: '#006477',
-    onTertiaryContainer: '#76e2ff',
-    error: '#ba1a1a',
-    onError: '#ffffff',
-    errorContainer: '#ffdad6',
-    onErrorContainer: '#93000a',
-    primaryFixed: '#dae2ff',
-    primaryFixedDim: '#b2c5ff',
-    onPrimaryFixed: '#001848',
-    onPrimaryFixedVariant: '#0040a2',
-    secondaryFixed: '#d6e3ff',
-    secondaryFixedDim: '#b7c7e8',
-    onSecondaryFixed: '#091c35',
-    onSecondaryFixedVariant: '#374763',
-    tertiaryFixed: '#afecff',
-    tertiaryFixedDim: '#48d7f9',
-    onTertiaryFixed: '#001f27',
-    onTertiaryFixedVariant: '#004e5d',
-    background: '#faf9ff',
-    onBackground: '#051a3e',
-    surfaceVariant: '#d8e2ff',
+    surface: "#faf9ff",
+    surfaceDim: "#ccdaff",
+    surfaceBright: "#faf9ff",
+    surfaceContainerLowest: "#ffffff",
+    surfaceContainerLow: "#f1f3ff",
+    surfaceContainer: "#e9edff",
+    surfaceContainerHigh: "#e1e8ff",
+    surfaceContainerHighest: "#d8e2ff",
+    onSurface: "#051a3e",
+    onSurfaceVariant: "#434654",
+    inverseSurface: "#1d3054",
+    inverseOnSurface: "#edf0ff",
+    outline: "#737685",
+    outlineVariant: "#c3c6d6",
+    surfaceTint: "#0c56d0",
+    primary: "#003d9b",
+    onPrimary: "#ffffff",
+    primaryContainer: "#0052cc",
+    onPrimaryContainer: "#c4d2ff",
+    inversePrimary: "#b2c5ff",
+    secondary: "#4f5f7b",
+    onSecondary: "#ffffff",
+    secondaryContainer: "#cdddff",
+    onSecondaryContainer: "#51617e",
+    tertiary: "#004b59",
+    onTertiary: "#ffffff",
+    tertiaryContainer: "#006477",
+    onTertiaryContainer: "#76e2ff",
+    error: "#ba1a1a",
+    onError: "#ffffff",
+    errorContainer: "#ffdad6",
+    onErrorContainer: "#93000a",
+    primaryFixed: "#dae2ff",
+    primaryFixedDim: "#b2c5ff",
+    onPrimaryFixed: "#001848",
+    onPrimaryFixedVariant: "#0040a2",
+    secondaryFixed: "#d6e3ff",
+    secondaryFixedDim: "#b7c7e8",
+    onSecondaryFixed: "#091c35",
+    onSecondaryFixedVariant: "#374763",
+    tertiaryFixed: "#afecff",
+    tertiaryFixedDim: "#48d7f9",
+    onTertiaryFixed: "#001f27",
+    onTertiaryFixedVariant: "#004e5d",
+    background: "#faf9ff",
+    onBackground: "#051a3e",
+    surfaceVariant: "#d8e2ff",
   },
   rounded: {
-    sm: '0.125rem',
-    default: '0.25rem',
-    md: '0.375rem',
-    lg: '0.5rem',
-    xl: '0.75rem',
-    full: '9999px',
+    sm: "0.125rem",
+    default: "0.25rem",
+    md: "0.375rem",
+    lg: "0.5rem",
+    xl: "0.75rem",
+    full: "9999px",
   },
   spacing: {
     base: 8,
@@ -72,18 +76,18 @@ export const designTokens = {
 
 export const theme = createTheme({
   palette: {
-    mode: 'light',
+    mode: "light",
     primary: {
       main: designTokens.colors.primary,
       contrastText: designTokens.colors.onPrimary,
       light: designTokens.colors.primaryContainer,
-      dark: '#002d73',
+      dark: "#002d73",
     },
     secondary: {
       main: designTokens.colors.secondary,
       contrastText: designTokens.colors.onSecondary,
       light: designTokens.colors.secondaryContainer,
-      dark: '#374763',
+      dark: "#374763",
     },
     error: {
       main: designTokens.colors.error,
@@ -101,118 +105,151 @@ export const theme = createTheme({
     },
     divider: designTokens.colors.outlineVariant,
   },
+
   typography: {
-    fontFamily: "'Playfair Display', Georgia, serif",
+    fontFamily: designTokens.fonts.body,
+
     h1: {
-      fontSize: '42px',
+      fontFamily: designTokens.fonts.heading,
+      fontSize: "42px",
       fontWeight: 700,
-      lineHeight: '52px',
-      letterSpacing: '-0.02em',
+      lineHeight: "52px",
+      letterSpacing: "-0.02em",
     },
     h2: {
-      fontSize: '32px',
-      fontWeight: 600,
-      lineHeight: '40px',
+      fontFamily: designTokens.fonts.heading,
+      fontSize: "32px",
+      fontWeight: 700,
+      lineHeight: "40px",
+      letterSpacing: "-0.01em",
     },
     h3: {
-      fontSize: '24px',
-      fontWeight: 600,
-      lineHeight: '32px',
+      fontFamily: designTokens.fonts.heading,
+      fontSize: "24px",
+      fontWeight: 700,
+      lineHeight: "32px",
     },
     h4: {
-      fontSize: '20px',
+      fontFamily: designTokens.fonts.heading,
+      fontSize: "20px",
       fontWeight: 600,
-      lineHeight: '28px',
+      lineHeight: "28px",
     },
     h5: {
-      fontSize: '18px',
-      fontWeight: 500,
-      lineHeight: '24px',
+      fontFamily: designTokens.fonts.body,
+      fontSize: "18px",
+      fontWeight: 600,
+      lineHeight: "24px",
+    },
+    h6: {
+      fontFamily: designTokens.fonts.body,
+      fontSize: "16px",
+      fontWeight: 600,
+      lineHeight: "24px",
     },
     body1: {
-      fontSize: '16px',
+      fontFamily: designTokens.fonts.body,
+      fontSize: "16px",
       fontWeight: 400,
-      lineHeight: '24px',
+      lineHeight: "24px",
     },
     body2: {
-      fontSize: '14px',
+      fontFamily: designTokens.fonts.body,
+      fontSize: "14px",
       fontWeight: 400,
-      lineHeight: '20px',
+      lineHeight: "20px",
     },
     button: {
-      fontSize: '12px',
-      fontWeight: 500,
-      lineHeight: '16px',
-      letterSpacing: '0.5px',
-      textTransform: 'none',
+      fontFamily: designTokens.fonts.body,
+      fontSize: "12px",
+      fontWeight: 600,
+      lineHeight: "16px",
+      letterSpacing: "0.5px",
+      textTransform: "none",
     },
     caption: {
-      fontSize: '11px',
+      fontFamily: designTokens.fonts.body,
+      fontSize: "11px",
       fontWeight: 500,
-      lineHeight: '16px',
+      lineHeight: "16px",
+    },
+    overline: {
+      fontFamily: designTokens.fonts.body,
+      fontSize: "11px",
+      fontWeight: 600,
+      lineHeight: "16px",
+      letterSpacing: "0.8px",
+      textTransform: "uppercase",
     },
   },
+
   shape: {
     borderRadius: 4,
   },
+
   spacing: designTokens.spacing.base,
+
   shadows: [
-    'none',
-    'none',
-    '0px 4px 8px rgba(9, 30, 66, 0.08)',
-    '0px 8px 16px rgba(9, 30, 66, 0.15)',
-    '0px 8px 16px rgba(9, 30, 66, 0.15)',
-    '0px 8px 16px rgba(9, 30, 66, 0.15)',
-    '0px 8px 16px rgba(9, 30, 66, 0.15)',
-    '0px 8px 16px rgba(9, 30, 66, 0.15)',
-    '0px 8px 16px rgba(9, 30, 66, 0.15)',
-    '0px 8px 16px rgba(9, 30, 66, 0.15)',
-    '0px 8px 16px rgba(9, 30, 66, 0.15)',
-    '0px 8px 16px rgba(9, 30, 66, 0.15)',
-    '0px 8px 16px rgba(9, 30, 66, 0.15)',
-    '0px 8px 16px rgba(9, 30, 66, 0.15)',
-    '0px 8px 16px rgba(9, 30, 66, 0.15)',
-    '0px 8px 16px rgba(9, 30, 66, 0.15)',
-    '0px 8px 16px rgba(9, 30, 66, 0.15)',
-    '0px 8px 16px rgba(9, 30, 66, 0.15)',
-    '0px 8px 16px rgba(9, 30, 66, 0.15)',
-    '0px 8px 16px rgba(9, 30, 66, 0.15)',
-    '0px 8px 16px rgba(9, 30, 66, 0.15)',
-    '0px 8px 16px rgba(9, 30, 66, 0.15)',
-    '0px 8px 16px rgba(9, 30, 66, 0.15)',
-    '0px 8px 16px rgba(9, 30, 66, 0.15)',
-    '0px 8px 16px rgba(9, 30, 66, 0.15)',
+    "none",
+    "none",
+    "0px 4px 8px rgba(9, 30, 66, 0.08)",
+    "0px 8px 16px rgba(9, 30, 66, 0.15)",
+    "0px 8px 16px rgba(9, 30, 66, 0.15)",
+    "0px 8px 16px rgba(9, 30, 66, 0.15)",
+    "0px 8px 16px rgba(9, 30, 66, 0.15)",
+    "0px 8px 16px rgba(9, 30, 66, 0.15)",
+    "0px 8px 16px rgba(9, 30, 66, 0.15)",
+    "0px 8px 16px rgba(9, 30, 66, 0.15)",
+    "0px 8px 16px rgba(9, 30, 66, 0.15)",
+    "0px 8px 16px rgba(9, 30, 66, 0.15)",
+    "0px 8px 16px rgba(9, 30, 66, 0.15)",
+    "0px 8px 16px rgba(9, 30, 66, 0.15)",
+    "0px 8px 16px rgba(9, 30, 66, 0.15)",
+    "0px 8px 16px rgba(9, 30, 66, 0.15)",
+    "0px 8px 16px rgba(9, 30, 66, 0.15)",
+    "0px 8px 16px rgba(9, 30, 66, 0.15)",
+    "0px 8px 16px rgba(9, 30, 66, 0.15)",
+    "0px 8px 16px rgba(9, 30, 66, 0.15)",
+    "0px 8px 16px rgba(9, 30, 66, 0.15)",
+    "0px 8px 16px rgba(9, 30, 66, 0.15)",
+    "0px 8px 16px rgba(9, 30, 66, 0.15)",
+    "0px 8px 16px rgba(9, 30, 66, 0.15)",
+    "0px 8px 16px rgba(9, 30, 66, 0.15)",
   ],
+
   components: {
     MuiCssBaseline: {
       styleOverrides: {
         body: {
           backgroundColor: designTokens.colors.background,
           color: designTokens.colors.onBackground,
+          fontFamily: designTokens.fonts.body,
         },
       },
     },
+
     MuiButton: {
       styleOverrides: {
         root: {
+          fontFamily: designTokens.fonts.body,
           borderRadius: designTokens.rounded.default,
-          boxShadow: 'none',
+          boxShadow: "none",
           minHeight: 32,
-          '&:hover': {
-            boxShadow: 'none',
+          "&:hover": {
+            boxShadow: "none",
           },
         },
         containedPrimary: {
           backgroundColor: designTokens.colors.primaryContainer,
           color: designTokens.colors.onPrimary,
-          '&:hover': {
+          "&:hover": {
             backgroundColor: designTokens.colors.primary,
           },
         },
         containedSecondary: {
           backgroundColor: designTokens.colors.secondaryContainer,
           color: designTokens.colors.primary,
-          '&:hover': {
+          "&:hover": {
             backgroundColor: designTokens.colors.secondaryFixedDim,
           },
         },
@@ -224,36 +261,67 @@ export const theme = createTheme({
         },
       },
     },
+
     MuiCard: {
       styleOverrides: {
         root: {
           border: `1px solid ${designTokens.colors.outlineVariant}`,
           borderRadius: designTokens.rounded.lg,
-          boxShadow: 'none',
-          '&:hover': {
-            boxShadow: '0px 4px 8px rgba(9, 30, 66, 0.08)',
+          boxShadow: "none",
+          "&:hover": {
+            boxShadow: "0px 4px 8px rgba(9, 30, 66, 0.08)",
           },
         },
       },
     },
+
     MuiPaper: {
       styleOverrides: {
         root: {
-          backgroundImage: 'none',
+          backgroundImage: "none",
         },
       },
     },
+
     MuiTextField: {
       defaultProps: {
-        variant: 'outlined',
+        variant: "outlined",
       },
     },
+
+    MuiInputBase: {
+      styleOverrides: {
+        root: {
+          fontFamily: designTokens.fonts.body,
+        },
+        input: {
+          fontFamily: designTokens.fonts.body,
+        },
+      },
+    },
+
+    MuiFormLabel: {
+      styleOverrides: {
+        root: {
+          fontFamily: designTokens.fonts.body,
+        },
+      },
+    },
+
+    MuiFormHelperText: {
+      styleOverrides: {
+        root: {
+          fontFamily: designTokens.fonts.body,
+        },
+      },
+    },
+
     MuiOutlinedInput: {
       styleOverrides: {
         root: {
           backgroundColor: designTokens.colors.surfaceContainerLowest,
           borderRadius: designTokens.rounded.default,
-          '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+          "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
             borderColor: designTokens.colors.primaryContainer,
             borderWidth: 2,
             boxShadow: `0 0 0 2px ${designTokens.colors.onPrimaryContainer}`,
@@ -264,16 +332,19 @@ export const theme = createTheme({
         },
       },
     },
+
     MuiChip: {
       styleOverrides: {
         root: {
+          fontFamily: designTokens.fonts.body,
           borderRadius: designTokens.rounded.full,
-          fontSize: '12px',
+          fontSize: "12px",
           fontWeight: 500,
-          lineHeight: '16px',
+          lineHeight: "16px",
         },
       },
     },
+
     MuiTableRow: {
       styleOverrides: {
         root: {
@@ -281,21 +352,25 @@ export const theme = createTheme({
         },
       },
     },
+
     MuiTableCell: {
       styleOverrides: {
         head: {
+          fontFamily: designTokens.fonts.body,
           backgroundColor: designTokens.colors.surfaceContainerLow,
           color: designTokens.colors.onSurfaceVariant,
-          fontSize: '12px',
-          fontWeight: 500,
-          lineHeight: '16px',
-          letterSpacing: '0.5px',
+          fontSize: "12px",
+          fontWeight: 600,
+          lineHeight: "16px",
+          letterSpacing: "0.5px",
         },
         root: {
+          fontFamily: designTokens.fonts.body,
           borderBottomColor: designTokens.colors.outlineVariant,
         },
       },
     },
+
     MuiDrawer: {
       styleOverrides: {
         paper: {
@@ -303,16 +378,17 @@ export const theme = createTheme({
         },
       },
     },
+
     MuiListItemButton: {
       styleOverrides: {
         root: {
           borderRadius: designTokens.rounded.default,
           color: designTokens.colors.onSurfaceVariant,
-          '&.Mui-selected': {
+          "&.Mui-selected": {
             backgroundColor: designTokens.colors.primaryFixed,
             color: designTokens.colors.onPrimaryFixedVariant,
             borderLeft: `4px solid ${designTokens.colors.primaryContainer}`,
-            '&:hover': {
+            "&:hover": {
               backgroundColor: designTokens.colors.primaryFixed,
             },
           },

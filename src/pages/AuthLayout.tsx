@@ -1,4 +1,4 @@
-import { alpha, Box, Typography } from "@mui/material";
+import { alpha, Box } from "@mui/material";
 import loginBg from "../assets/auth-hero.jpg";
 import { designTokens } from "../theme";
 interface IAuthLayoutProps {
