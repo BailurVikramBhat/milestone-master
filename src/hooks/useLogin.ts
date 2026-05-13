@@ -25,19 +25,17 @@ export default function useLogin() {
   const [submitError, setSubmitError] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const navigate = useNavigate();
-  
 
   function handleEmailChange(event: React.ChangeEvent<HTMLInputElement>) {
     setValues((prev) => ({
       ...prev,
       email: event.target.value,
     }));
-    setErrors((prev) =>({
-        ...prev,
-        email: ""
+    setErrors((prev) => ({
+      ...prev,
+      email: "",
     }));
     setSubmitError("");
-
   }
   function handlePasswordChange(event: React.ChangeEvent<HTMLInputElement>) {
     setValues((prev) => ({
@@ -54,43 +52,42 @@ export default function useLogin() {
 
   function handleRememberMeChange(event: React.ChangeEvent<HTMLInputElement>) {
     setValues((prev) => ({
-        ...prev,
-        rememberMe: event.target.checked
+      ...prev,
+      rememberMe: event.target.checked,
     }));
     setSubmitError("");
   }
 
   function validateForm() {
     const nextErrors: LoginFormErrors = {
-        email: "",
-        password:""
+      email: "",
+      password: "",
     };
     const trimmedEmail = values.email.trim();
-    if(!trimmedEmail) {
-        nextErrors.email = REQUIRED;
+    if (!trimmedEmail) {
+      nextErrors.email = REQUIRED;
     } else {
-        const emailError = validateEmail(trimmedEmail);
-        if(emailError) {
-            nextErrors.email = emailError;
-        }
-    } 
-    if(!values.password) {
-        nextErrors.password = REQUIRED;
+      const emailError = validateEmail(trimmedEmail);
+      if (emailError) {
+        nextErrors.email = emailError;
+      }
+    }
+    if (!values.password) {
+      nextErrors.password = REQUIRED;
     }
     setErrors(nextErrors);
     return !nextErrors.email && !nextErrors.password;
-
   }
   async function handleSubmit(event: React.SubmitEvent<HTMLFormElement>) {
     event.preventDefault();
     const isValid = validateForm();
-    if(!isValid) {
-        return;
+    if (!isValid) {
+      return;
     }
     try {
-        setIsSubmitting(true);
-        setSubmitError("");
-        const loginPayload = {
+      setIsSubmitting(true);
+      setSubmitError("");
+      const loginPayload = {
         email: values.email.trim(),
         password: values.password,
         rememberMe: values.rememberMe,
@@ -113,5 +110,14 @@ export default function useLogin() {
       setIsSubmitting(false);
     }
   }
-  return {values, errors, submitError, isSubmitting, handleEmailChange, handlePasswordChange, handleRememberMeChange, handleSubmit};
+  return {
+    values,
+    errors,
+    submitError,
+    isSubmitting,
+    handleEmailChange,
+    handlePasswordChange,
+    handleRememberMeChange,
+    handleSubmit,
+  };
 }

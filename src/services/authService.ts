@@ -1,22 +1,22 @@
 export type LoginRequest = {
-    email: string;
-    password: string;
-    rememberMe: boolean;
-}
+  email: string;
+  password: string;
+  rememberMe: boolean;
+};
 export type LoginResponse = {
-    message?:string;
-}
+  message?: string;
+};
 const AUTH_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 async function login(request: LoginRequest): Promise<LoginResponse | void> {
-    const response = await fetch(`${AUTH_BASE_URL}/login`, {
-        method: "POST",
-        credentials: "include",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(request)
-    })
-    if (!response.ok) {
+  const response = await fetch(`${AUTH_BASE_URL}/login`, {
+    method: "POST",
+    credentials: "include",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(request),
+  });
+  if (!response.ok) {
     let errorMessage = "Invalid email or password";
 
     try {
@@ -40,9 +40,8 @@ async function login(request: LoginRequest): Promise<LoginResponse | void> {
   }
 
   return;
-
 }
 const authService = {
-    login
-}
+  login,
+};
 export default authService;
