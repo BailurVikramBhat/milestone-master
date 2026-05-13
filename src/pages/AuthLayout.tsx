@@ -10,32 +10,30 @@ export default function AuthLayout({
   rightContent,
 }: IAuthLayoutProps) {
   return (
-    <>
+    <Box
+      sx={{
+        display: "flex",
+        minHeight: "100vh",
+      }}
+    >
       <Box
         sx={{
-          display: "flex",
-          minHeight: "100vh",
-        }}
-      >
-        <Box
-          sx={{
-            width: "50%",
-            backgroundImage: `linear-gradient(
+          width: "50%",
+          backgroundImage: `linear-gradient(
       ${alpha(designTokens.colors.surfaceTint, 0.85)}, 
       ${alpha(designTokens.colors.surfaceTint, 0.85)}
     ), url(${loginBg})`,
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            display: { xs: "none", sm: "flex", md: "flex" },
-            color: `${designTokens.colors.onPrimary}`,
-            padding: "1.5rem",
-            maxHeight: "100vh",
-          }}
-        >
-          {leftContent}
-        </Box>
-        <Box sx={{ width: "50%" }}>{rightContent}</Box>
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          display: { xs: "none", sm: "flex", md: "flex" },
+          color: `${designTokens.colors.onPrimary}`,
+          p: 3,
+          maxHeight: "100vh",
+        }}
+      >
+        {leftContent}
       </Box>
-    </>
+      <Box sx={{ width: { xs: "100%", sm: "50%" } }}>{rightContent}</Box>
+    </Box>
   );
 }

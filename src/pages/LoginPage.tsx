@@ -32,7 +32,7 @@ export default function LoginPage() {
         <Box
           sx={{
             display: "flex",
-            maxHeight: "100vh",
+            height:"100%",
             flexDirection: "column",
             justifyContent: "end",
           }}
@@ -66,12 +66,9 @@ export default function LoginPage() {
             display: "flex",
             flexDirection: "column",
             height: "100vh",
-            // border: "1px solid black",
             maxWidth: "400px",
             marginX: "auto",
             justifyContent: "center",
-            alignContent: "space-around",
-            backgroundColor: `${designTokens.colors.background}`,
           }}
         >
           <Box

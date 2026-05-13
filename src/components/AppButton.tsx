@@ -18,7 +18,7 @@ export default function AppButton({
   return (
     <Button
       sx={{
-        paddingY: "1rem",
+        py:2,
         width: fullWidth ? "100%" : "auto",
       }}
       {...buttonProps}
