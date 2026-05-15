@@ -6,7 +6,7 @@ export type LoginRequest = {
 export type LoginResponse = {
   message?: string;
 };
-const AUTH_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+const AUTH_BASE_URL = import.meta.env.VITE_API_BASE_URL + "/auth";
 async function login(request: LoginRequest): Promise<LoginResponse | void> {
   const response = await fetch(`${AUTH_BASE_URL}/login`, {
     method: "POST",
