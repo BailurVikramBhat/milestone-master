@@ -145,7 +145,7 @@ export default function LoginPage() {
                 mb: 2,
               }}
             >
-              <Box sx={{ display: "flex", alignItems: "flex-start" }}>
+              <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
                 <Checkbox
                   sx={{
                     m: 0,
@@ -162,6 +162,9 @@ export default function LoginPage() {
                   component="label"
                   htmlFor="remember-me"
                   variant="body2"
+                  sx={{
+                    verticalAlign: "middle"
+                  }}
                 >
                   Remember me for 30 days
                 </Typography>
