@@ -9,12 +9,13 @@ import {
 } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { designTokens } from "../theme";
+import authService from "../services/authService";
 
 export default function Homepage() {
   const navigate = useNavigate();
 
-  function handleLogout() {
-    // TODO: call logout endpoint whrn fix is ready
+  async function handleLogout() {
+    await authService.logout();
     navigate("/login", { replace: true });
   }
 

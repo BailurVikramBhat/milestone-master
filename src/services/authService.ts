@@ -6,6 +6,9 @@ export type LoginRequest = {
 export type LoginResponse = {
   message?: string;
 };
+export type LogoutResponse = {
+  message?:string;
+}
 const AUTH_BASE_URL = import.meta.env.VITE_API_BASE_URL + "/auth";
 async function login(request: LoginRequest): Promise<LoginResponse | void> {
   const response = await fetch(`${AUTH_BASE_URL}/login`, {
@@ -41,7 +44,37 @@ async function login(request: LoginRequest): Promise<LoginResponse | void> {
 
   return;
 }
+async function logout(): Promise<LogoutResponse|void> {
+  const response = await fetch(`${AUTH_BASE_URL}/logout`, {
+    method: "POST",
+    credentials: "include",
+  });
+  if (!response.ok) {
+    let errorMessage = "Unable to log out. Please try again later";
+
+    try {
+      const errorBody = await response.json();
+
+      errorMessage =
+        errorBody.message ||
+        errorBody.error ||
+        errorBody.detail ||
+        errorMessage;
+    } catch {
+      // If backend sends empty/non-JSON error body, keep default message
+    }
+
+    throw new Error(errorMessage);
+  }
+  const contentType = response.headers.get("content-type");
+
+  if (contentType?.includes("application/json")) {
+    return response.json();
+  }
+
+  return;
+}
 const authService = {
-  login,
+  login, logout
 };
 export default authService;
