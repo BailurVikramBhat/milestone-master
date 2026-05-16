@@ -10,13 +10,40 @@ import {
 import { useNavigate } from "react-router-dom";
 import { designTokens } from "../theme";
 import authService from "../services/authService";
+import { useState } from "react";
+import LogoutConfirmationDialog from "../components/LogoutConfirmationDialog";
 
 export default function Homepage() {
+  const [isLogoutDialogOpen, setIsLogoutDialogOpen] = useState<boolean>(false);
+  const [isLoggingOut, setIsLoggingOut] = useState<boolean>(false);
+  const [logoutError, setLogoutError] = useState<string>("");
   const navigate = useNavigate();
 
-  async function handleLogout() {
-    await authService.logout();
-    navigate("/login", { replace: true });
+  async function handleLogoutConfirm() {
+    try {
+      setIsLoggingOut(true);
+      setLogoutError("");
+      await authService.logout();
+      navigate("/login", { replace: true });
+    } catch (error) {
+      const message =
+        error instanceof Error
+          ? error.message
+          : "Unable to log out. Please try again later.";
+
+      setLogoutError(message);
+    } finally {
+      setIsLoggingOut(false);
+    }
+  }
+  function handleLogoutClick() {
+    setLogoutError("");
+    setIsLogoutDialogOpen(true);
+  }
+
+  function handleLogoutCancel() {
+    setIsLogoutDialogOpen(false);
+    setLogoutError("");
   }
 
   return (
@@ -39,11 +66,11 @@ export default function Homepage() {
           borderBottom: `1px solid ${designTokens.colors.outlineVariant}`,
         }}
       >
-        <Typography variant="h4" fontWeight={700}>
+        <Typography variant="h2" fontWeight={800}>
           Milestone Master
         </Typography>
 
-        <Button variant="outlined" color="error" onClick={handleLogout}>
+        <Button variant="outlined" color="error" onClick={handleLogoutClick}>
           Logout
         </Button>
       </Box>
@@ -64,8 +91,8 @@ export default function Homepage() {
             </Typography>
 
             <Typography variant="body1" color="text.secondary">
-              Track your milestones, manage project progress, and keep your
-              team aligned.
+              Track your milestones, manage project progress, and keep your team
+              aligned.
             </Typography>
           </Box>
 
@@ -134,14 +161,20 @@ export default function Homepage() {
                 <Typography variant="h3">Getting started</Typography>
 
                 <Typography variant="body2" color="text.secondary">
-                  Your dashboard shell is ready. Next, connect this page to real
-                  project, milestone, and task data from the backend.
+                  Your dashboard shell is ready. When milestone functionality is available, it will show up here.
                 </Typography>
               </Stack>
             </CardContent>
           </Card>
         </Stack>
       </Box>
+      <LogoutConfirmationDialog
+        open={isLogoutDialogOpen}
+        isLoggingOut={isLoggingOut}
+        errorMessage={logoutError}
+        onCancel={handleLogoutCancel}
+        onConfirm={handleLogoutConfirm}
+      />
     </Box>
   );
 }
